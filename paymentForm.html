@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Payment form example</title>
+  <link href="stylesheets/payment-form.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div id="ex1" class="modal">
+    <div class="modal-body">
+      Thanks for the Payment <a id="titlemodal"></a> <a id="namemodal"></a>
+    </div>
+    <a href="#" rel="modal:close">Close</a>
+  </div>
+
+  <form data-payment-order="form" method="post">
+    <h2>Payment form</h2>
+    <p>Required fields are followed by <strong><abbr title="required">*</abbr></strong>.</p>
+    <section>
+      <h3>Contact information</h3>
+      <fieldset>
+        <h5>Title</h5>
+        <ul>
+          <li>
+            <label for="title_1">
+                      <input type="radio" id="title_1" name="title" value="Mr." >
+                      Mister
+                    </label>
+          </li>
+          <li>
+            <label for="title_2">
+                      <input type="radio" id="title_2" name="title" value="Ms.">
+                      Miss
+                    </label>
+          </li>
+        </ul>
+      </fieldset>
+      <p>
+        <label for="name">
+                <label>Name: </label>
+        <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="text" id="name" name="username">
+      </p>
+      <p>
+        <label for="mail">
+                E-mail:
+                <strong><abbr title="required">*</abbr></strong>
+              </label>
+        <input type="email" id="mail" name="usermail">
+      </p>
+      <p>
+        <label for="pwd">
+                Password:
+                <strong><abbr title="required">*</abbr></strong>
+              </label>
+        <input type="password" id="pwd" name="password">
+      </p>
+    </section>
+    <section>
+      <h4>Payment information</h4>
+      <p>
+        <label for="card">
+              Card type:
+              </label>
+        <select id="card" name="usercard">
+                <option value="visa">Visa</option>
+                <option value="mc">Mastercard</option>
+                <option value="amex">American Express</option>
+              </select>
+      </p>
+      <p>
+        <label for="number">
+                Card number:
+                <strong><abbr title="required">*</abbr></strong>
+              </label>
+        <input type="text" id="number" name="cardnumber">
+      </p>
+      <p>
+        <label for="date">
+                expiry date<br>mm/yy :
+                <strong><abbr title="required">*</abbr></strong>
+
+              </label>
+        <input type="text" id="date" name="expiration">
+
+
+      </p>
+      <p>
+        <span><a class="btn btn-default" href="#ex1" rel="modal:open" onclick="setName()">Validate Payment</a></span>
+      </p>
+    </section>
+
+  </form>
+  <script>
+    function setName() {
+      var name = document.getElementById("name").value;
+      document.getElementById("namemodal").innerHTML = name;
+      if (document.getElementById('title_1').checked) {
+        document.getElementById("titlemodal").innerHTML = 'Mr.';
+      } else {
+        document.getElementById("titlemodal").innerHTML = 'Ms.';
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+</body>
+
+</html>
