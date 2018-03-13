@@ -39,7 +39,7 @@
     });
   };
   function getId(key, id) {
-    console.log("the id to remove is:"+id);
+    console.log("the id which is removed:"+id);
     return id;
   }
 
